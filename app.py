@@ -96,7 +96,12 @@ df = df[df["Min GATE Score"] <= user_gate_score]
 
 # --- Display Result ---
 st.title("🎓 CCMT Program Finder")
-
+st.markdown(
+    """
+Developed by Shivraj Anand.
+[Contact](https://shivrajanand.github.io)
+"""
+)
 # Data source note
 st.markdown(
     """
