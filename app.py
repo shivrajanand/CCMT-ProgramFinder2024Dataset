@@ -57,12 +57,57 @@ special_filter = st.sidebar.radio(
 )
 
 # Apply special program filters if selected
+
+cs_program_list = ['Computer Science & Engineering',
+ 'Computer Science and Engineering with Specialization in Data Science and Artificial Intelligence',
+ 'Computer Science',
+ 'Dual Degree M.Tech. - Ph.D in IT  with specialization in Machine Learning, Robotics and Human Computer Interaction Group',
+ 'Computer Science and Engineering with Specialization in Artificial Intelligence and Data Science',
+ 'Computer Science & Information Security',
+ 'Computer Integrated Manufacturing',
+ 'Computer Science & Engineering (Artificial Intelligence)',
+ 'Computer Science and  Engineering (Cyber Security)',
+ 'Computer Science & Technology',
+ 'Computer Aided Design Manufacture and Engineering',
+ 'M.Tech. IT with specialization in Machine Learning, Robotics and Human Computer Interaction Group',
+ 'Computer Engineering (Cyber Security)',
+ 'Computer Science & Engineering (Information Security)',
+ 'Computer Aided Design & Manufacturing',
+ 'Computer Networking',
+ 'Computer Engineering',
+ 'Computer Science & Engineering in (Artificial Intelligence & Data Science)',
+ 'Computer Science & Engineering (Analytics)']
+
+aiml_program_list = [ 'Computer Science and Engineering with Specialization in Data Science and Artificial Intelligence',
+ 'Data Science',
+ 'M.Tech. IT  with specialization in Software and Data Engineering Group',
+ 'Artificial Intelligence',
+ 'Data Science & Engineering',
+ 'Dual Degree M.Tech. - Ph.D in IT  with specialization in Machine Learning, Robotics and Human Computer Interaction Group',
+ 'Computer Science and Engineering with Specialization in Artificial Intelligence and Data Science',
+ 'M.Tech in Artificial Intelligence',
+ 'M.Tech in Data Science',
+ 'Machine Learning and Computing',
+ 'M.Tech in Artificial Intelligence and Machine Learning',
+ 'Signal Processing and Machine Learning',
+ 'Data Analytics',
+ 'Artificial Intelligence & Data Science',
+ 'Computer Science & Engineering (Artificial Intelligence)',
+ 'Dual Degree M.Tech. - Ph.D  in IT with specialization in Software and Data Engineering Group',
+ 'Artificial Intelligence and Machine Learning',
+ 'M.Tech. IT with specialization in Machine Learning, Robotics and Human Computer Interaction Group',
+ 'Data Science and Engineering',
+ 'Computational and Data Science',
+ 'Industrial Engineering and Data Analytics',
+ 'Computer Science & Engineering in (Artificial Intelligence & Data Science)',
+ 'Machine Intelligence and Automation']
+
+
 if special_filter == "CS-programs":
-    df = df[df["PG Program"].str.contains("computer", case=False, na=False)]
+    df = df[df["PG Program"].isin(cs_program_list)]
 
 elif special_filter == "AIML-programs":
-    keywords = ["data", "machine", "intelligence", "ai", "ml", "learning"]
-    df = df[df["PG Program"].str.contains('|'.join(keywords), case=False, na=False)]
+    df = df[df["PG Program"].isin(aiml_program_list)]
 
 # Apply user-selected PG Programs if any
 if pg_selected:
